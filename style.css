@@ -1,0 +1,44 @@
+@media   (min-width: 400px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      
+
+      .linha-vertical {
+        width: 4px;                /* espessura da linha */
+        height: 100vh;             /* altura da tela toda */
+        background-color: #3498db; /* cor da linha */
+        margin: 0 20px;            /* margem horizontal */
+      }
+}
+
+@media (min-width:700px) {
+    .container {
+        display: flex;
+        justify-content: center; /* horizontal */
+        align-items: center;     /* vertical */
+        height: 100px;
+        top:90%;   
+                /* ocupa a tela toda */
+      }
+
+      h2 {
+        /* vazio - não faz nada */
+        
+
+    
+    }
+
+}
+
+body{
+    background-color: beige;
+}
+
+h2{
+    background-color: aqua;
+    margin:solid;
+}
