@@ -11,8 +11,9 @@ include 'conexao.php';
     <title >formulario de cadastro</title>
 </head>
 <body>
-    <h2 class="container linha-vertical"> cadastro de usuario</h2>
-    <div class="container">
+    <div class="container ">     <h2 class="caixa"> cadastro de usuario</h2> </div>
+   
+    <div class="container cadastro">
     <form action="cadastrar.php" method="POST" >
         <label for="nome_usuario"> Nome:</label>
         <input type="text" id="nome_usuario" name="nome_usuario" required > <br> <br>

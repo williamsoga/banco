@@ -1,34 +1,33 @@
 <?php 
     include 'conexao.php';
-if ($_SERVER['REQUEST_METHOD']=='POST'){
-    $nome_usario=$_POST['nome_usuario'];
-    $contato_usario=$_POST['contato_usuario'];
-    $email_usario=$_POST['email_usuario'];
-    $senha_usario=$_POST['senha_usuario'];
 
-    $senha_hash=password_hash($senha_usario,PASSWORD_DEFAULT);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Corrigido: nomes corretos e consistentes
+        $nome_usuario = $_POST['nome_usuario'];
+        $contato_usuario = $_POST['contato_usuario'];
+        $email_usuario = $_POST['email_usuario'];
+        $senha_usuario = $_POST['senha_usuario'];
 
-    $sql="INSERT INTO cadastro (nome_usuario, contato_usuario, email_usuario, senha_usuario)
-    
-    VALUES (?,?,?,?)";
-    
-    if($stmt=$mysqli-> prepare ($sql)){
-        $stmt-> bind_param("ssss",$nome_usuario,$contato_usuario,$email_usuario,$senha_hash);
-      
-        if($stmt-> execute()) {
-            echo"usuario cadastrado com sucesso !";
+        // Criptografar a senha
+        $senha_hash = password_hash($senha_usuario, PASSWORD_DEFAULT);
 
-        }else {
-            echo "erro ao cadastrar :". $stmt->error;
+        $sql = "INSERT INTO cadastro (nome_usuario, contato_usuario, email_usuario, senha_usuario)
+                VALUES (?, ?, ?, ?)";
+
+        if ($stmt = $mysqli->prepare($sql)) {
+            $stmt->bind_param("ssss", $nome_usuario, $contato_usuario, $email_usuario, $senha_hash);
+
+            if ($stmt->execute()) {
+                echo "Usuário cadastrado com sucesso!";
+            } else {
+                echo "Erro ao cadastrar: " . $stmt->error;
+            }
+
+            $stmt->close();
+        } else {
+            echo "Erro ao preparar a consulta: " . $mysqli->error;
         }
-
-        $stmt->close();
-
-    }else{
-     
-        echo "erro ao preparar a consulta:".$mysqli->error;
     }
-    
-}
-$mysqli->close();
+
+    $mysqli->close();
 ?>

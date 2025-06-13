@@ -1,4 +1,4 @@
-@media   (min-width: 400px) {
+@media   (min-width: 300px ) and (max-width:600px)    {
     .container {
         display: flex;
         flex-wrap: wrap;
@@ -10,7 +10,6 @@
       .linha-vertical {
         width: 4px;                /* espessura da linha */
         height: 100vh;             /* altura da tela toda */
-        background-color: #3498db; /* cor da linha */
         margin: 0 20px;            /* margem horizontal */
       }
 }
@@ -25,20 +24,34 @@
                 /* ocupa a tela toda */
       }
 
-      h2 {
+      .linha-vertical {
         /* vazio - não faz nada */
+        text-align: center;
+        width: 4px;                /* espessura da linha */
+        height: 100vh;             /* altura da tela toda */
+        /* cor da linha */
+        margin: 0 20px;     
         
-
-    
+      }
+        .caixa {
+            background-color: lightblue;  /* Cor da caixa */
+            padding: 20px;                /* Espaço interno */
+            margin: 20px auto;            /* Espaço externo, centraliza horizontalmente */
+            width: 80%;                   /* Largura da caixa */
+            border-radius: 10px;          /* Bordas arredondadas (opcional) */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra (opcional) */
+            text-align: center;           /* Centraliza o conteúdo dentro da caixa */
+          }
     }
 
-}
+
 
 body{
     background-color: beige;
 }
 
-h2{
-    background-color: aqua;
-    margin:solid;
+
+
+form{
+    margin-top: 110px
 }
