@@ -18,9 +18,12 @@
             $stmt->bind_param("ssss", $nome_usuario, $contato_usuario, $email_usuario, $senha_hash);
 
             if ($stmt->execute()) {
-                echo "Usuário cadastrado com sucesso!";
+               //$mensagem='<div class="message sucess"> Ususario cadastro com sucesso !</div>';//
+                echo "<script> alert ('Usuario cadastrado com sucesso ! '); 
+                window.location.href='login.php';
+                </script>";
             } else {
-                echo "Erro ao cadastrar: " . $stmt->error;
+                $mensagem='<div class "message error> Erro ao cadastrar :'.$stmt->error."</div>";
             }
 
             $stmt->close();
